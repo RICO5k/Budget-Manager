@@ -9,13 +9,13 @@ import java.util.Map;
 
 public class Menu {
 
-    private Map <Integer, Command> commands = new LinkedHashMap<>();
+    private Map <String, Command> commands = new LinkedHashMap<>();
 
-    public void setCommand(int operation, Command cmd) {
+    public void setCommand(String operation, Command cmd) {
         commands.put(operation, cmd);
     }
 
-    public void runCommand(int operation) {
+    public void runCommand(String operation) {
         System.out.print("\n");
 
         commands.get(operation).execute();
@@ -23,14 +23,14 @@ public class Menu {
         System.out.print("\n");
     }
 
-    public boolean hasCommand(int operation) {
+    public boolean hasCommand(String operation) {
         return commands.containsKey(operation);
     }
 
     public List<String> getCommandStrings() {
         List<String> commandStrings = new ArrayList<>();
 
-        for( Map.Entry<Integer, Command> entry : commands.entrySet() ) {
+        for( Map.Entry<String, Command> entry : commands.entrySet() ) {
             StringBuilder sb = new StringBuilder();
 
             sb.append(entry.getKey());

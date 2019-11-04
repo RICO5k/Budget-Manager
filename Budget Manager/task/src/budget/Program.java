@@ -24,18 +24,18 @@ public class Program {
     }
 
     public void initializeMenuOptions() {
-        menu.setCommand(1, new AddIncomeCommand(budget, scanner));
-        menu.setCommand(2, new AddPurchaseCommand(budget, scanner));
-        menu.setCommand(3, new ShowPurchasesCommand(budget));
-        menu.setCommand(4, new BalanceCommand(budget));
-        menu.setCommand(0, new ExitCommand(this));
+        menu.setCommand("1", new AddIncomeCommand(budget, scanner));
+        menu.setCommand("2", new AddPurchaseCommand(budget, scanner));
+        menu.setCommand("3", new ShowPurchasesCommand(budget, scanner));
+        menu.setCommand("4", new BalanceCommand(budget));
+        menu.setCommand("0", new ExitCommand(this));
     }
 
     public void run() {
         while(running) {
             printMenu();
 
-            int command = readCommand();
+            String command = readCommand();
 
             menu.runCommand(command);
         }
@@ -52,15 +52,15 @@ public class Program {
 
     }
 
-    public int readCommand() {
-        int cmd = Integer.parseInt(scanner.nextLine());
+    public String readCommand() {
+        String command = scanner.nextLine();
 
-        while(!menu.hasCommand(cmd)) {
+        while(!menu.hasCommand(command)) {
             System.out.println("Unknown command, please repeat: ");
-            cmd = scanner.nextInt();
+            command = scanner.nextLine();
         }
 
-        return cmd;
+        return command;
     }
 
     public void endProgram() {
