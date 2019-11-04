@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class Program {
 
+    private static final String FILE_NAME = "purchases.txt";
+
     private Scanner scanner;
 
     private Menu menu;
@@ -28,6 +30,8 @@ public class Program {
         menu.setCommand("2", new AddPurchaseCommand(budget, scanner));
         menu.setCommand("3", new ShowPurchasesCommand(budget, scanner));
         menu.setCommand("4", new BalanceCommand(budget));
+        menu.setCommand("5", new SaveCommand(budget, FILE_NAME));
+        menu.setCommand("6", new LoadCommand(budget, FILE_NAME));
         menu.setCommand("0", new ExitCommand(this));
     }
 

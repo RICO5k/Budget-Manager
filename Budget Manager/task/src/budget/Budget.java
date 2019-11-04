@@ -7,11 +7,13 @@ import java.util.Map;
 
 public class Budget {
 
+    private double totalIncome;
     private double balance;
 
     private Map< PurchaseCategories, List<Purchase> > purchases;
 
     public Budget() {
+        this.totalIncome = 0;
         this.balance = 0;
 
         this.purchases = new HashMap<>();
@@ -25,7 +27,12 @@ public class Budget {
         return balance;
     }
 
+    public double getTotalIncome() {
+        return this.totalIncome;
+    }
+
     public void addIncome(double income) {
+        this.totalIncome += income;
         this.balance += income;
     }
 
@@ -39,6 +46,10 @@ public class Budget {
     private void reduceBalance(double value) {
         balance -= value;
         if(balance < 0) balance = 0;
+    }
+
+    public List<Purchase> getPurchases(PurchaseCategories category) {
+        return purchases.get(category);
     }
 
     public List<String> getPurchaseStrings(PurchaseCategories category) {
