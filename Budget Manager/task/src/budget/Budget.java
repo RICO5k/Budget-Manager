@@ -1,9 +1,6 @@
 package budget;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Budget {
 
@@ -53,9 +50,17 @@ public class Budget {
     }
 
     public List<String> getPurchaseStrings(PurchaseCategories category) {
+        return getPurchaseStrings(category, false);
+    }
+
+    public List<String> getPurchaseStrings(PurchaseCategories category, boolean sorted) {
+        List<Purchase> purchasesList = purchases.get(category);
+
+        if(sorted) Collections.sort(purchasesList);
+
         List<String> purchaseStrings = new ArrayList<>();
 
-        for( Purchase purchase : purchases.get(category) ) {
+        for( Purchase purchase : purchasesList ) {
             purchaseStrings.add( purchase.toString() );
         }
 

@@ -31,7 +31,7 @@ public class ShowPurchasesCommand implements Command {
         } while(category != null);
     }
 
-    public void printPurchaseCategoriesMenu() {
+    private void printPurchaseCategoriesMenu() {
         System.out.println("Choose the type of purchases");
         System.out.println("1) Food");
         System.out.println("2) Clothes");
@@ -41,7 +41,7 @@ public class ShowPurchasesCommand implements Command {
         System.out.println("6) Back");
     }
 
-    public PurchaseCategories readCategory() {
+    private PurchaseCategories readCategory() {
         String category = scanner.nextLine();
 
         switch(category) {

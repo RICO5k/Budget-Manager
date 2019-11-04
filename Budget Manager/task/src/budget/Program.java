@@ -32,6 +32,7 @@ public class Program {
         menu.setCommand("4", new BalanceCommand(budget));
         menu.setCommand("5", new SaveCommand(budget, FILE_NAME));
         menu.setCommand("6", new LoadCommand(budget, FILE_NAME));
+        menu.setCommand("7", new AnalyzeCommand(budget, scanner));
         menu.setCommand("0", new ExitCommand(this));
     }
 
